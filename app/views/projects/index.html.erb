@@ -1,25 +1,11 @@
-<h1>Listing projects</h1>
-
-<table>
-  <tr>
-    <th>Project name</th>
-    <th>Project cost</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="page-header">
+  <h1>All Projects</h1>
+</div>
 
 <% @projects.each do |project| %>
-  <tr>
-    <td><%= project.project_name %></td>
-    <td><%= project.project_cost %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<div class="project">
+  <strong><%= link_to project.project_name, project %></strong>
+  <p><%= project.project_cost %></p>
+</div>
+
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Project', new_project_path %>

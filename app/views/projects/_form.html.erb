@@ -1,4 +1,4 @@
-<%= form_for(@project) do |f| %>
+<%= simple_form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -11,14 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :project_name %><br />
-    <%= f.text_field :project_name %>
-  </div>
-  <div class="field">
-    <%= f.label :project_cost %><br />
-    <%= f.number_field :project_cost %>
-  </div>
+  <%= f.input :project_name %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
