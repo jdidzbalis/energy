@@ -1,10 +1,18 @@
 Energy::Application.routes.draw do
 
-  devise_for :users
-
-  resources :projects
+devise_for :users
 
 
+devise_scope :user do
+  get 'register', to: 'devise/registrations#new', as: :register
+end
+
+devise_scope :user do
+  get 'login', to: 'devise/sessions#new', as: :login
+end
+
+
+  resources :projects 
   root to: 'projects#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

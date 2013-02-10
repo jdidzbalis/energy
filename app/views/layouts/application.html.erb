@@ -7,8 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
@@ -22,19 +21,31 @@
 					<li><%= link_to current_user.full_name,edit_user_registration_path %></li>
 					<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 				<% else %>
-					<li><%= link_to "Register", new_user_registration_path %></li>
-					<li><%= link_to "Login", new_user_session_path %></li>
+					<li><%= link_to "Register", register_path %></li>
+					<li><%= link_to "Login", login_path %></li>
 				<% end %>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span2">
-		</div>
-		<div class="span8">
+<div class="container">
+	<% if flash[:notice] %>
+	<div class="alert alert-success">
+		<button class="close" data-dismiss="alert">x</button>
+		<%= flash[:notice] %>
+
+	</div>
+	<% end %>
+	<% if flash[:alert] %>
+	<div class="alert alert-error">
+		<button class="close" data-dismiss="alert">x</button>
+		<%= flash[:alert] %>
+
+	</div>
+	<% end %>
+	<div class="row">
+		<div class="span12">
 		<%= yield %>
 		</div>
 	</div>

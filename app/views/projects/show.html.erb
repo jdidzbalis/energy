@@ -1,15 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Project name:</b>
- 
-</p>
+<div class="container">
+	<h4><%= link_to '< Back to Projects', projects_path %></h4>
+	<div class="row">
+		<div class="span12" style="background-color: #FAFAFA; height:400px;">
+			<h1><%= @project.project_name %></h1>
+		</div>
+		<div class="span4">
+			<div class="progress">
+				<div class="bar" style="width: 30%;"></div>
+			</div>
+		</div>
+	</div>
+ </div>
+ <div class="container-fluid">
+ 	<div class="row-fluid">
+ 		<div class="span6">
+ 			
+ 		</div>
+ 		<div class="span6">
+ 			<div class="btn btn-large">$100</div>
+ 			<div class="btn btn-large">$200</div>
+ 			<div class="btn btn-large">$500</div>
+ 		</div>
+ 	</div>
+ </div>
 
-<p>
-  <b>Project cost:</b>
-  <%= @project.project_cost %>
-</p>
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
