@@ -11,11 +11,18 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:projects)
   end
 
-  test "should get new" do
+  test "should be redirected when not logged in" do
     get :new
-    assert_response :success
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
   end
 
+  test "should render the new page when logged in" do
+    sign_in users(:jonas)
+    get :new
+    assert_response :success
+
+  end
   test "should create project" do
     assert_difference('Project.count') do
       post :create, project: { project_cost: @project.project_cost, project_name: @project.project_name }
