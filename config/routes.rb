@@ -1,5 +1,7 @@
 Energy::Application.routes.draw do
 
+  get "profiles/show"
+
 devise_for :users
 
 
@@ -11,6 +13,7 @@ devise_scope :user do
   get 'login', to: 'devise/sessions#new', as: :login
 end
 
+get '/:id', to: 'profiles#show'
 
   resources :projects 
   root to: 'projects#index'

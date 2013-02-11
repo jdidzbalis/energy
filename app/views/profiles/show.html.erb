@@ -1,0 +1,11 @@
+<div class="page-header">
+	<h1><%= @user.full_name %></h1>
+</div>
+
+<% if @projects %>
+<% @projects.each do |project| %>
+	<div class="well">
+		<%= status.project_name %>
+	</div>
+<% end %>
+<% end %>

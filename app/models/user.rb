@@ -16,6 +16,8 @@ validates :profile_name, presence: true, uniqueness: true, format: {
 															message: 'must be formatted correctly'
 															}
  
+has_many :project_fundings
+has_many :projects, through: :project_fundings
 
   def full_name
   	first_name + " " + last_name
