@@ -1,12 +1,16 @@
-<% if @project %>
-	<h1><%= @project.project_name %></h1
-	<p>Do you really want to invest $100 in <%= @project.project_name %>?</p>
+<% if @investment %>
+	<h1><%= @investment.project_name %></h1>
+<% end %>
 
-	<%= form_for @project_fundings, method: :post do |form| %>
+	<p>Do you really want to invest $100 in <%= @investment.id %>?</p>
+
+
+
+	<%= form_for @project_funding, method: :post do |form| %>
 		<div class="form form-actions">
-			<%= form.hidden_field :project_id, value: @project.project_name %>
+			<%= hidden_field_tag :investment_id, value: @investment.id %>
 			<%= submit_tag "Yes, invest", class: 'btn btn-primary' %>
-			<%= link_to "Cancel", project_path(@project), class: 'btn' %>
+			<%= link_to "Cancel", projects_path(@project), class: 'btn' %>
 		</div>
 	<% end %>
-<% end %>
+

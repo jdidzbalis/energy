@@ -13,12 +13,13 @@ devise_scope :user do
   get 'login', to: 'devise/sessions#new', as: :login
 end
 
+resources :project_fundings
+
 resources :projects 
 root to: 'projects#index'
 
 
-resources :project_fundings do
-end
+
 
 
 get '/:id', to: 'profiles#show', as: 'profile'
