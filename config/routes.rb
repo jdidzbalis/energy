@@ -13,10 +13,17 @@ devise_scope :user do
   get 'login', to: 'devise/sessions#new', as: :login
 end
 
-get '/:id', to: 'profiles#show'
+resources :projects 
+root to: 'projects#index'
 
-  resources :projects 
-  root to: 'projects#index'
+
+resources :project_fundings do
+end
+
+
+get '/:id', to: 'profiles#show', as: 'profile'
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
