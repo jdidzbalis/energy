@@ -1,36 +1,125 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
-	<h6><%= link_to '< Back to Projects', projects_path %></h6>
-	<div class="page-header hero-unit">
-		
-		<h1><%= @project.project_name %></h1>
-	</div>
-	
-	<div class="row">
-		<div class="span4" style="height: 200px">
-			<h4>Project Description</h4>	
-		</div>
-		<div class="span4" style="height: 200px">
-			<h4>Project Location</h4>	
-		</div>
-	</div>
-	<div class="row">
-		<div class="span4">
-			<h4>Project Funded</h4>
-			<div class="progress">
-				<div class="bar" style="width: 30%;"></div>
+	<p id="notice"><%= notice %></p>
+		<div class="details-container">
+			<div class="project-details">
+				<h1 style="padding-bottom: 20px;"><%= @project.project_name %></h1>
+				<table class="table">
+					<tr>
+						<td><strong>Project Owner</strong></td>
+						<td>XYZ Associates Inc.</td>
+					</tr>
+					<tr>
+						<td><strong>Project Type</strong></td>
+						<td>Lighting Efficiency Upgrade</td>
+					</tr>
+					<tr>
+						<td><strong>Energy Audit Complete?</strong></td>
+						<td>&#x2713;</td>
+					</tr>
+					<tr>
+						<td><strong>Current Energy Usage</strong></td>
+						<td>2000 kW</td>
+					</tr>
+					<tr>
+						<td><strong>Estimated Energy Savings</strong></td>
+						<td>500 kW</td>
+					</tr>
+					<tr>
+						<td><strong>Estimated Rate of Return</strong></td>
+						<td>7.5 %</td>
+					</tr>
+				</table>
+				<div class="progress">
+					<div class="bar" style="width: 60%;"></div>
+				</div>
+				<div class="funding_level">
+				  	<h3>$1000<%= @project__funded %> of $5000<%= @project_project_cost %> funded</h3>
+				</div>				
+			</div>
+			<div class="project-photo">
+				<img src="../images/projects/Project1-large.jpg">
 			</div>
 		</div>
+</div>
+<div class="container" style="margin-top: 600px;">
+	<div class="row">
 		<div class="span8">
-			<h4>Invest</h4>
- 			<div class="btn btn-large"><%= link_to "$100", new_project_funding_path(investment_id: @project.id) %></div>
- 			<div class="btn btn-large">$200</div>
- 			<div class="btn btn-large">$500</div>
- 		</div>
+			<h2>Project Description</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. Donec sed sapien eu urna volutpat adipiscing id quis ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer luctus mattis facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum ligula a nisi pretium nec eleifend mi venenatis. Mauris id dui id eros rutrum ullamcorper.</p>
+
+			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque. Cras dictum scelerisque urna, sit amet consectetur elit vestibulum vulputate. Mauris eget libero eget lacus lobortis commodo. Donec sit amet ipsum nisl. Integer hendrerit, justo non semper cursus, leo velit ullamcorper lorem, vel consequat mi nunc sit amet justo.</p>
+			
+			<h2>Project Location</h2>
+		</div>
+
+		<div class="span4">
+			<h2>Investment Levels</h2>
+			<ul id="investment-levels">
+				<li>
+					<div class="investment-block">
+						<% if signed_in? %>
+							<%= link_to "$100", new_project_funding_path(funding_level: 100,investment_id: @project.id), class: 'investment-number' %>
+						<% else %>
+							<%= link_to "$100", new_user_registration_path, class: 'investment-number' %>
+						<% end %>
+					</div>
+					<div>
+						<p>Estimated annual return: $25</p>
+					</div>
+				</li>
+				<li>
+					<div class="investment-block">
+						<% if signed_in? %>
+							<%= link_to "$500", new_project_funding_path(funding_level: 100,investment_id: @project.id), class: 'investment-number' %>
+						<% else %>
+							<%= link_to "$500", new_user_registration_path, class: 'investment-number' %>
+
+						<% end %>
+					</div>
+					<div>
+						<p>Estimated annual return: $125</p>
+					</div>	
+				</li>
+				<li>
+					<div class="investment-block">
+						<% if signed_in? %>
+							<%= link_to "$1000", new_project_funding_path(funding_level: 100,investment_id: @project.id), class: 'investment-number' %>
+						<% else %>
+							<%= link_to "$1000", new_user_registration_path, class: 'investment-number' %>
+						<% end %>
+					</div>
+					<div>
+						<p>Estimated annual return: $325</p>
+					</div>
+				</li>
+				<li>
+					<div class="investment-block">
+						<% if signed_in? %>
+							<%= link_to "$5000", new_project_funding_path(funding_level: 100,investment_id: @project.id), class: 'investment-number' %>
+						<% else %>
+							<%= link_to "$5000", new_user_registration_path, class: 'investment-number' %>
+
+						<% end %>
+					</div>
+					<div>
+						<p>Estimated annual return: $1025</p>
+					</div>
+				</li>	
+				<li>
+					<div class="investment-block">
+						<% if signed_in? %>
+							<%= link_to "$10000", new_project_funding_path(funding_level: 100,investment_id: @project.id), class: 'investment-number' %>
+						<% else %>
+							<%= link_to "$10000", new_user_registration_path, class: 'investment-number' %>
+
+						<% end %>
+					</div>
+					<div>
+						<p>Estimated annual return: $5025</p>
+					</div>
+				</li>				
+			</ul>
+		</div>
 	</div>
- </div>
- 
-
-
-
+</div>
+	

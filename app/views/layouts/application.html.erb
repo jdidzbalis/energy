@@ -5,52 +5,53 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
 </head>
 <body>
 
 
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<a class="brand" href="#">Energy</a>
+			<a class="brand" href="../">Energy</a>
 			<ul class="nav">
 				<li><%= link_to "Browse Projects", projects_path %></li>
 			</ul>
 			<ul class="nav pull-right">
 				<% if user_signed_in? %>
+					<% if current_user.try(:admin?) %>
+	  				<li><%= link_to 'Add Project', new_project_path %></li>
+	  				<li><%= link_to 'Approvals', project_fundings_path %></li>
+					<% end %>
+					<li><%= link_to 'Your Investments', project_fundings_path %></li>
 					<li><%= link_to current_user.full_name,edit_user_registration_path %></li>
 					<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 				<% else %>
-					<li><%= link_to "Register", register_path %></li>
-					<li><%= link_to "Login", login_path %></li>
+					<li><%= link_to "Sign Up", register_path %></li>
+					<li><%= link_to "Sign In", login_path %></li>
 				<% end %>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<div class="container">
-	<% if flash[:notice] %>
-	<div class="alert alert-success">
-		<button class="close" data-dismiss="alert">x</button>
-		<%= flash[:notice] %>
 
-	</div>
+<div>
+	<% if flash[:notice] %>
+		<div class="alert alert-success">
+			<button class="close" data-dismiss="alert">x</button>
+			<%= flash[:notice] %>
+		</div>
 	<% end %>
 	<% if flash[:alert] %>
-	<div class="alert alert-error">
-		<button class="close" data-dismiss="alert">x</button>
-		<%= flash[:alert] %>
-
-	</div>
-	<% end %>
-	<div class="row">
-		<div class="span12">
-		<%= yield %>
+		<div class="alert alert-error">
+			<button class="close" data-dismiss="alert">x</button>
+			<%= flash[:alert] %>
 		</div>
-	</div>
+	<% end %>
+	<%= yield %>
 </div>
-
 
 </body>
 </html>

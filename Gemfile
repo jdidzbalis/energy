@@ -8,9 +8,16 @@ gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem 'devise'
 gem 'simple_form'
+gem 'state_machine'
+gem 'draper'
+gem 'js-routes'
+gem 'css3-progress-bar-rails'
+
+
 
 group :test do
 	gem 'shoulda'
+	gem 'factory_girl_rails'
 end
 
 

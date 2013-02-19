@@ -17,7 +17,12 @@ validates :profile_name, presence: true, uniqueness: true, format: {
 															}
  
 has_many :project_fundings
-has_many :investments, through: :project_fundings
+
+has_many :investments, through: :project_fundings, conditions: {project_fundings: {state:'accepted'} }
+
+has_many :pending_project_fundings, class_name: 'ProjectFundings', foreign_key: :project_id, conditions: {state:'pending'}
+
+has_many :pending_investments, through: :pending_project_fundings, source: :investment
 
   def full_name
   	first_name + " " + last_name

@@ -1,14 +1,37 @@
+<div class="container">
+	<div class="row">
+		<div class="span8">
+			<h1 style="margin-bottom: 50px;">Invest in <%= @investment.project_name %></h1>
+			<div class="details-title">
+				<strong>Investment Details</strong>
+			</div>
+			<div class="details-body">
+				
+			</div>
+		</div>
+		<div class="span3" style="border-left: 1px dotted; padding-left: 15px;">
+			<h2>Notes:</h2>
+			<strong>Investment Approval</strong>
+			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
+			<strong>Third Party Processor</strong>
+			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
+			<strong>Accumulation of Returns</strong>
+			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
+		</div>
+	</div>
+</div>
+
+
 <% if @investment %>
 	<h1><%= @investment.project_name %></h1>
 <% end %>
-
-	<p>Do you really want to invest $100 in <%= @investment.id %>?</p>
-
-
+<p>Do you really want to invest $<%= @funding_offered %> in <%= @investment.project_name %>?</p>
 
 	<%= form_for @project_funding, method: :post do |form| %>
 		<div class="form form-actions">
-			<%= hidden_field_tag :investment_id, value: @investment.id %>
+			<%= form.hidden_field :investment_id, value: @investment.id %>
+			<%= form.hidden_field :funding_level, value: @funding_offered %>
+			
 			<%= submit_tag "Yes, invest", class: 'btn btn-primary' %>
 			<%= link_to "Cancel", projects_path(@project), class: 'btn' %>
 		</div>
