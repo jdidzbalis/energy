@@ -1,20 +1,17 @@
-<%= simple_form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+<div class="container">
+  <div class="page-header">
+    <h1>Create A New Project</h1>
+  </div>
+  
+  <%= simple_form_for @project, :url => projects_path, :html => { :multipart => true} do |f| %>
 
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+
+    <%= f.input :project_name %>
+    <%= f.input :project_cost %>
+    <%= f.file_field :avatar %>
+    
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <%= f.input :project_name %>
-  <%= f.input :project_cost %>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

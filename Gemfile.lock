@@ -33,6 +33,7 @@ GEM
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
+    cocaine (0.4.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -40,8 +41,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
-    css3-progress-bar-rails (0.4.0)
-      rails (>= 3.1)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -78,6 +77,12 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.5.0)
     orm_adapter (0.4.0)
+    paperclip (3.4.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -105,6 +110,7 @@ GEM
     rdoc (3.12.1)
       json (~> 1.4)
     request_store (1.0.5)
+    rmagick (2.13.2)
     sass (3.2.5)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -144,13 +150,14 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
-  css3-progress-bar-rails
   devise
   draper
   factory_girl_rails
   jquery-rails
   js-routes
+  paperclip (~> 3.4.0)
   rails (= 3.2.11)
+  rmagick
   sass-rails (~> 3.2.3)
   shoulda
   simple_form

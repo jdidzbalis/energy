@@ -11,7 +11,8 @@ gem 'simple_form'
 gem 'state_machine'
 gem 'draper'
 gem 'js-routes'
-gem 'css3-progress-bar-rails'
+gem 'paperclip', '~> 3.4.0'
+gem 'rmagick'
 
 
 

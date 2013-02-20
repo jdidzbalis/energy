@@ -30,14 +30,14 @@
 					</tr>
 				</table>
 				<div class="progress">
-					<div class="bar" style="width: 60%;"></div>
+					<div class="bar" style="width: <%= @project.percent_funded %>%;"></div>
 				</div>
 				<div class="funding_level">
-				  	<h3>$1000<%= @project__funded %> of $5000<%= @project_project_cost %> funded</h3>
+				  	<h3>$<%= @project.funded %> of $<%= @project.project_cost %> funded</h3>
 				</div>				
 			</div>
 			<div class="project-photo">
-				<img src="../images/projects/Project1-large.jpg">
+				<%= image_tag @project.avatar(:large) %>
 			</div>
 		</div>
 </div>
@@ -50,6 +50,7 @@
 			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque. Cras dictum scelerisque urna, sit amet consectetur elit vestibulum vulputate. Mauris eget libero eget lacus lobortis commodo. Donec sit amet ipsum nisl. Integer hendrerit, justo non semper cursus, leo velit ullamcorper lorem, vel consequat mi nunc sit amet justo.</p>
 			
 			<h2>Project Location</h2>
+
 		</div>
 
 		<div class="span4">

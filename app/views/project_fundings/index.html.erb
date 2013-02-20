@@ -6,23 +6,23 @@
   </div>
 
   <% @project_fundings.each do |funding| %>
-    <% investment = funding.investment %>
-    <div id="<%= dom_id(funding) %>" class="friend row">
-      <div class="span7">
-        <% if funding.pending? %>
-            <h2>Funding Pending</h2>
-            <h4><%= investment.project_name %></h4>  
-            <h4><%= funding.total_investment %></h4>              
-                <%= form_for @project_fundings, url: accept_project_funding_path(funding.id), method: :put do |form| %>
-                <%= submit_tag "Approve" %>             
-                <% end %>
-        <% end %>
-        <% if funding.accepted? %>
-            <h2>Funding Approved</h2>
-            <h4><%= investment.project_name %></h4>  
-        <% end %>
+      <% investment = funding.investment %>
+      <div id="<%= dom_id(funding) %>" class="friend row">
+        <div class="span7">
+          <% if funding.pending? %>
+              <h2>Funding Pending</h2>
+              <h4><%= investment.project_name %></h4>  
+              <h4><%= funding.total_investment %></h4>              
+                  <%= form_for @project_fundings, url: accept_project_funding_path(funding.id), method: :put do |form| %>
+                  <%= submit_tag "Approve" %>             
+                  <% end %>
+          <% end %>
+          <% if funding.accepted? %>
+              <h2>Funding Approved</h2>
+              <h4><%= investment.project_name %></h4>  
+          <% end %>
+        </div>
       </div>
-    </div>
   <% end %>
 
 <% else %>
@@ -34,15 +34,26 @@
   <% @project_fundings.each do |funding| %>
     <% investment = funding.investment %>
     <div id="<%= dom_id(funding) %>" class="friend row">
-      <div class="span7">
-        <h2><%= investment.project_name %></h2><br />
-          <% if funding.pending? %>
-            <em>Investment is pending.</em>
-          <% end %>
-          <% if funding.accepted? %>
-            <em>Investment Approved <%= investment.updated_at %>.</em>
-          <% end %>
-      </div>
+    
+        <div class="span7">
+          <h2>Pending Investments</h2>
+            <% if funding.pending? %>
+            <div style="height: 100px;">
+              <div class="index-thumbnail" style="float: left;">
+                <%= image_tag investment.avatar.url(:small) %>
+              </div>
+              <div class="index-description">
+                <strong><%= investment.project_name %></strong><br />
+              </div>
+            </div>
+            <% end %>
+          <h2>Registered Investments</h2>
+            <% if funding.accepted? %>
+              <strong><%= investment.project_name %></strong><br />
+              <%= investment.updated_at %>
+            <% end %>
+        </div>
+ 
     </div>
   <% end %>
 

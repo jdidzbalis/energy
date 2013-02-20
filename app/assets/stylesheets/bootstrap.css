@@ -3869,7 +3869,7 @@ input[type="submit"].btn.btn-mini {
 
 .alert {
   padding: 8px 35px 8px 14px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #ff7518;
   border: 1px solid transparent;
@@ -3890,7 +3890,7 @@ input[type="submit"].btn.btn-mini {
 .alert .close {
   position: relative;
   top: -2px;
-  right: -21px;
+  right: 205px;
   line-height: 20px;
 }
 
@@ -3898,10 +3898,13 @@ input[type="submit"].btn.btn-mini {
   color: #ffffff;
   background-color: #3fb618;
   border-color: transparent;
+  padding-left: 230px;
+
 }
 
 .alert-success h4 {
   color: #ffffff;
+  
 }
 
 .alert-danger,
@@ -3920,15 +3923,18 @@ input[type="submit"].btn.btn-mini {
   color: #ffffff;
   background-color: #9954bb;
   border-color: transparent;
+
 }
 
 .alert-info h4 {
   color: #ffffff;
+ 
 }
 
 .alert-block {
   padding-top: 14px;
   padding-bottom: 14px;
+
 }
 
 .alert-block > p,
@@ -4535,7 +4541,8 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 }
 
 .navbar-inner {
-  min-height: 50px;
+  font-size: 13px;
+  height: 40px;
   padding-right: 20px;
   padding-left: 20px;
   background-color: #080808;
@@ -4579,7 +4586,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 .navbar .brand {
   display: block;
   float: left;
-  padding: 15px 20px 15px;
+  padding: 10px 20px 15px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
@@ -4777,8 +4784,8 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 
 .navbar .nav > li > a {
   float: none;
-  padding: 15px 15px 15px;
-  color: #ffffff;
+  padding: 10px 15px 15px;
+  color: #bbbbbb;
   text-decoration: none;
   text-shadow: 0 1px 0 #080808;
 }
@@ -4789,7 +4796,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  color: #bbbbbb;
+  color: #ffffff;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.05);
 }
@@ -5693,7 +5700,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 }
 
 .thumbnails {
-  margin-left: -20px;
+  margin-left: 0;
   list-style: none;
   *zoom: 1;
   

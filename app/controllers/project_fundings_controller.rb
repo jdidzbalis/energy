@@ -18,6 +18,15 @@ class ProjectFundingsController < ApplicationController
 		if @project_funding.accept!
 			@project = @project_funding.investment
 			@project.update_attribute(:funded, @project_funding.total_investment)
+			@percent_funded = @project.funded / @project.project_cost * 100
+				if @percent_funded == nil
+					@percent_funded = 0
+					@project.update_attribute(:percent_funded, @percent_funded)
+					
+				else
+					@project.update_attribute(:percent_funded, @percent_funded)
+				end
+			
 			flash[:notice] = "Investment accepted"
 		else
 			flash[:notice] = "Investment not accepted"
@@ -31,9 +40,6 @@ class ProjectFundingsController < ApplicationController
 			@investment = Project.find(params[:investment_id])
 			@funding_offered = params[:funding_level]
 			@project_funding = current_user.project_fundings.new(investment: @investment, funding_offered: @funding_offered)
-
-			
-			flash[:notice] = @funding_offered
 		else
 			flash[:notice] = "Project required..."
 		end

@@ -43,6 +43,9 @@ class ProjectFunding < ActiveRecord::Base
     ProjectFunding.where({investment_id: investment_id, state: 'accepted'}).sum(:funding_offered)
   end
 
+  def percent_funded
+    ProjectFunding.where({investment_id: investment_id, state: 'accepted'}).sum(:funding_offered)
+  end
 
 
 end
