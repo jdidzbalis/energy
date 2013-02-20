@@ -17,6 +17,7 @@ class ProjectFundingsController < ApplicationController
 
 		if @project_funding.accept!
 			@project = @project_funding.investment
+			@project.update_attribute(:funded, @project_funding.total_investment)
 			flash[:notice] = "Investment accepted"
 		else
 			flash[:notice] = "Investment not accepted"
