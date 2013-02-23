@@ -35,22 +35,58 @@
     <% investment = funding.investment %>
     <div id="<%= dom_id(funding) %>" class="friend row">
     
-        <div class="span7">
-          <h2>Pending Investments</h2>
+        <div class="span11">
+          <div class="investments-index-intro">
+            <p><strong>Pending Investments</strong> are cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <p><strong>Registered Investments</strong> are cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          </div>
+          <h2 class="text-info">Pending Investments</h2>
             <% if funding.pending? %>
-            <div style="height: 100px;">
-              <div class="index-thumbnail" style="float: left;">
-                <%= image_tag investment.avatar.url(:small) %>
+              <div class="investments-index-description">
+                <table class="table">
+                  <h3><%= investment.project_name %></h3>
+                  <tr>
+                    <td><strong>Your Investment:</strong></td>
+                    <td><strong>Current Status:</strong></td>
+                    <td><strong>Percent Funded:</strong></td>
+                    <td><strong>Estimated Monthly Payment:</strong></td>
+                    <td><strong>Operational Date:</strong></td>
+                    <td><strong>Loan Duration:</strong></td>
+                  </tr>
+                  <tr>
+                    <td><%= funding.funding_offered %></td>
+                    <td>Partially Funded</td>
+                    <td>88%</td>
+                    <td>$20</td>
+                    <td>March 12, 1934</td>
+                    <td>60 months</td>
+                  </tr>
+                </table>
               </div>
-              <div class="index-description">
-                <strong><%= investment.project_name %></strong><br />
-              </div>
-            </div>
             <% end %>
-          <h2>Registered Investments</h2>
+          <h2 class="text-info">Registered Investments</h2>
             <% if funding.accepted? %>
-              <strong><%= investment.project_name %></strong><br />
-              <%= investment.updated_at %>
+            <div class="investments-index-description">
+                <table class="table">
+                  <h3><%= investment.project_name %></h3>
+                  <tr>
+                    <td><strong>Your Investment:</strong></td>
+                    <td><strong>Current Status:</strong></td>
+                    <td><strong>Percent Funded:</strong></td>
+                    <td><strong>Estimated Monthly Payment:</strong></td>
+                    <td><strong>Operational Date:</strong></td>
+                    <td><strong>Loan Duration:</strong></td>
+                  </tr>
+                  <tr>
+                    <td><%= funding.funding_offered %></td>
+                    <td>Partially Funded</td>
+                    <td>88%</td>
+                    <td>$20</td>
+                    <td>March 12, 1934</td>
+                    <td>60 months</td>
+                  </tr>
+                </table>
+              </div>
             <% end %>
         </div>
  

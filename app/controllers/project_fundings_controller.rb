@@ -27,9 +27,9 @@ class ProjectFundingsController < ApplicationController
 					@project.update_attribute(:percent_funded, @percent_funded)
 				end
 			
-			flash[:notice] = "Investment accepted"
+			flash[:notice] = "Investment Approved"
+			redirect_to project_fundings_path
 		else
-			flash[:notice] = "Investment not accepted"
 			redirect_to project_fundings_path
 		end
 
@@ -53,11 +53,11 @@ class ProjectFundingsController < ApplicationController
 			@funding_offered = params[:project_funding][:funding_level]
 			@project_funding = ProjectFunding.request(current_user, @investment, @funding_offered)
 			if @project_funding.new_record?			
-				flash[:notice] = "There was a problem creating the investment request"
+				flash[:notice] = "There was a problem. We could not find the project. Please contact us at support@energy.com"
 				redirect_to project_path(@investment)
 			else
-				flash[:notice] = @funding_offered
-				redirect_to project_path(@investment)
+				flash[:notice] = "Your investment has been requested, and will be pending until project is fully funded. Track all of your investments here."
+				redirect_to project_fundings_path(@investment)
 			end	
 		else
 			flash[:notice] = "Project ID not found"

@@ -14,21 +14,29 @@
 		  				<h3><%= link_to project.project_name, project %></h3>
 		  				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 		  			</div>
-		  			
+		  			<div class="index-funding">
 			  			<div class="progress">
 							<div class="bar" style="width: <%= project.percent_funded %>%;"></div>
 						</div>
-						<div class="funding_level">
-				  			<h3>$<%= project.funded %> of $<%= project.project_cost %> funded</h3>
+						<div class="index-funding-percent">
+				  			<strong>34<%= project.percent_funded %>%</strong>
+				  			<p>FUNDED</p>
 				  		</div>
-				  		<div class="project-buttons">
-			  				<a href="#" class="btn btn-primary">Project Profile</a>
-			  				<a href="#" class="btn btn-inverse">View Energy Audit</a>
-						</div>
-		  			
+				  		<div class="index-funding-total">
+				  			<strong>$15000<%= project.funded %></strong>
+				  			<p>INVESTED</p>
+				  		</div>
+				  		<div class="index-funding-savings">
+				  			<strong>6.5<%= project.funded %>%</strong>
+				  			<p>EST. RETURN</p>
+				  		</div>
+		  			</div>
 		  		</li>
 	  		<% end %>
-	  	</ul>  
+	  	</ul>
+	  	<div class="span3">
+	  	</div> 
+	
 	</div>
 </div>
 

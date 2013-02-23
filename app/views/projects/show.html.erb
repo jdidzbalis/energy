@@ -1,7 +1,6 @@
 <div class="container">
-	<p id="notice"><%= notice %></p>
-		<div class="details-container">
-			<div class="project-details">
+		<div class="show-container">
+			<div class="show-details">
 				<h1 style="padding-bottom: 20px;"><%= @project.project_name %></h1>
 				<table class="table">
 					<tr>
@@ -29,14 +28,25 @@
 						<td>7.5 %</td>
 					</tr>
 				</table>
-				<div class="progress">
-					<div class="bar" style="width: <%= @project.percent_funded %>%;"></div>
-				</div>
-				<div class="funding_level">
-				  	<h3>$<%= @project.funded %> of $<%= @project.project_cost %> funded</h3>
-				</div>				
+				<div class="show-funding">
+			  			<div class="progress">
+							<div class="bar" style="width: <%= @project.percent_funded %>%;"></div>
+						</div>
+						<div class="show-funding-percent">
+				  			<strong>34<%= @project.percent_funded %>%</strong>
+				  			<p>FUNDED</p>
+				  		</div>
+				  		<div class="show-funding-total">
+				  			<strong>$15000<%= @project.funded %></strong>
+				  			<p>INVESTED</p>
+				  		</div>
+				  		<div class="show-funding-savings">
+				  			<strong>6.5<%= @project.funded %>%</strong>
+				  			<p>EST RETURN</p>
+				  		</div>
+		  			</div>				
 			</div>
-			<div class="project-photo">
+			<div class="show-photo">
 				<%= image_tag @project.avatar(:large) %>
 			</div>
 		</div>

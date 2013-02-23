@@ -36,12 +36,13 @@
 			<div class="details-title">
 				<strong>Payment Checkout</strong>
 			</div>
+			<h2>Credit Card Form Goes Here</h2>
 					<%= form_for @project_funding, html: {class: "form-horizontal"}, method: :post do |f| %>
 					
 							<%= f.hidden_field :investment_id, value: @investment.id %>
 							<%= f.hidden_field :funding_level, value: @funding_offered %>
 						
-							<%= submit_tag "Yes, invest", class: 'btn btn-primary' %>
+							<%= submit_tag "Submit Investment", class: 'btn btn-primary' %>
 							<%= link_to "Cancel", projects_path(@project), class: 'btn btn-primary' %>
 						
 					<% end %>

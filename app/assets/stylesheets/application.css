@@ -19,10 +19,12 @@ body{
 
 .alert{
 	margin-top: 0px;
+	margin-bottom: -20px;
 }
 
 .notice{
 	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 /* Main Home Page */
@@ -57,31 +59,71 @@ body{
 
 /* Show Project Page */
 
-.details-container {
+.show-container {
 	position: relative;
 	width: 940px;
+	
 }
 
-.project-details {
+.show-details {
 	width: 400px;
 	min-height: 243px;
 	position: absolute;
 	right: 20px;
-	top: 140px;
+	top: 130px;
 	background-color: #ffffff;
 	opacity: 1;
 	padding: 10px 12px;
 	z-index: 3;
+	border: 1px #000000 solid;
 
 }
 
-.project-photo {
+.show-photo {
 	position: absolute;
 	width: 940px;
 	height: 500px;
 	z-index: 1;
 	opacity: 0.8;
 }
+
+.show-funding {
+	background-color: #dddddd;
+	height: 95px;
+	padding-top: 15px;
+}
+
+
+.show-funding-percent {
+	width: 125px;
+	padding-left: 15px;
+	float: left;
+}
+
+.show-funding-total {
+	width: 125px;
+	float: left;
+	padding-left: 5px;
+}
+
+.show-funding-savings {
+	width: 125px;
+	float: left;
+	padding-left: 5px;
+}
+
+.show-funding .progress {
+	height: 15px;
+	width: 350px;
+	margin-left: 25px;
+	margin-top:10px;
+}
+
+.show-funding .progress .bar{
+	background-color: #dddddd;
+	width: 40%;
+}
+
 
 #investment-levels li{
 	list-style: none;
@@ -118,4 +160,71 @@ body{
 .table-body td {
 	border-bottom: 1px dotted;
 	padding: 10px 20px 10px;
+}
+
+/* Project Index Page */
+
+.row ul{
+	margin-left: 0px;
+}
+
+.thumbnails li{
+	background-color: #ffffff;
+	font-size: 12px;
+	box-shadow: 2px 2px 2px #eeeeee;
+	border: 1px #dddddd solid;
+	padding: 4px 4px 4px 4px;
+	margin-right: -10px;
+}
+
+
+.index-funding {
+	background-color: #dddddd;
+	height: 83px;
+	padding-top: 15px;
+}
+
+
+.index-funding-percent {
+	width: 90px;
+	padding-left: 15px;
+	float: left;
+}
+
+.index-funding-total {
+	width: 90px;
+	float: left;
+	padding-left: 5px;
+}
+
+.index-funding-savings {
+	width: 90px;
+	float: left;
+	padding-left: 5px;
+}
+
+.index-funding .progress {
+	height: 8px;
+	width: 250px;
+	margin-left: 25px;
+}
+
+.index-funding .progress .bar{
+	background-color: #dddddd;
+	width: 40%;
+}
+/* Investments Index Page */
+
+.investments-index-description table {
+	width: 850px;
+}
+
+.investments-index-intro {
+	width: 600px;
+	border: 3px #bbbbbb solid;
+	text-align: center;
+	margin-left: 170px;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	padding: 10px 10px 10px 10px;
 }
