@@ -1,50 +1,51 @@
 <div class="container">
 
-<% if current_user.try(:admin?) %>
-  <div class="page-header">
-    <h1>All Funding</h1>
-  </div>
-
-  <% @project_fundings.each do |funding| %>
-      <% investment = funding.investment %>
-      <div id="<%= dom_id(funding) %>" class="friend row">
-        <div class="span7">
-          <% if funding.pending? %>
-              <h2>Funding Pending</h2>
-              <h4><%= investment.project_name %></h4>  
-              <h4><%= funding.total_investment %></h4>              
-                  <%= form_for @project_fundings, url: accept_project_funding_path(funding.id), method: :put do |form| %>
-                  <%= submit_tag "Approve" %>             
-                  <% end %>
-          <% end %>
-          <% if funding.accepted? %>
-              <h2>Funding Approved</h2>
-              <h4><%= investment.project_name %></h4>  
-          <% end %>
-        </div>
-      </div>
-  <% end %>
-
-<% else %>
 
   <div class="page-header">
     <h1>Your Investments</h1>
   </div>
 
-  <% @project_fundings.each do |funding| %>
-    <% investment = funding.investment %>
-    <div id="<%= dom_id(funding) %>" class="friend row">
-    
-        <div class="span11">
-          <div class="investments-index-intro">
-            <p><strong>Pending Investments</strong> are cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><strong>Registered Investments</strong> are cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          </div>
-          <h2 class="text-info">Pending Investments</h2>
-            <% if funding.pending? %>
-              <div class="investments-index-description">
-                <table class="table">
-                  <h3><%= investment.project_name %></h3>
+ <div class="investments-index-intro">
+    <p><strong>In Progress Investments</strong> are cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+    <p><strong>Completed Investments</strong> are cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+</div>
+
+<div class="row">
+  <div class="span11">
+    <h2>Funding In Progress</h2>
+      <% @project_fundings.each do |funding| %>
+        <% investment = funding.investment %>
+          <% if investment.inprogress? %>
+            <table class="table">
+              <h3 class="text-info"><%= investment.project_name %></h3>
+              <tr>
+                <td><strong>Investment Value:</strong></td>
+                <td><strong>Current Status:</strong></td>
+                <td><strong>Percent Funded:</strong></td>
+                <td><strong>Operational Date:</strong></td>
+                <td><strong>Loan Duration:</strong></td>
+              </tr>
+              <tr>
+                <td><%= number_to_currency(funding.funding_offered, :precision => 0) %></td>
+                <td>In Progress</td>
+                <td><%= number_to_percentage(investment.percent_funded, :precision => 0) %></td>
+                <td><%= investment.project_opdate %></td>
+                <td>60 months</td>
+              </tr>
+            </table>            
+          <% end %>
+      <% end %>
+  </div>
+</div>
+
+  <h2>Funding Completed</h2>
+    <% @project_fundings.each do |funding| %>
+      <% investment = funding.investment %>
+        <div class="span7">
+          <% if investment.completed? %>
+              <h2>Completed Investments</h2>
+              <table class="table">
+                  <h3 class="info-text"><%= investment.project_name %></h3>
                   <tr>
                     <td><strong>Your Investment:</strong></td>
                     <td><strong>Current Status:</strong></td>
@@ -62,37 +63,7 @@
                     <td>60 months</td>
                   </tr>
                 </table>
-              </div>
-            <% end %>
-          <h2 class="text-info">Registered Investments</h2>
-            <% if funding.accepted? %>
-            <div class="investments-index-description">
-                <table class="table">
-                  <h3><%= investment.project_name %></h3>
-                  <tr>
-                    <td><strong>Your Investment:</strong></td>
-                    <td><strong>Current Status:</strong></td>
-                    <td><strong>Percent Funded:</strong></td>
-                    <td><strong>Estimated Monthly Payment:</strong></td>
-                    <td><strong>Operational Date:</strong></td>
-                    <td><strong>Loan Duration:</strong></td>
-                  </tr>
-                  <tr>
-                    <td><%= funding.funding_offered %></td>
-                    <td>Partially Funded</td>
-                    <td>88%</td>
-                    <td>$20</td>
-                    <td>March 12, 1934</td>
-                    <td>60 months</td>
-                  </tr>
-                </table>
-              </div>
-            <% end %>
-        </div>
- 
-    </div>
-  <% end %>
-
-<% end %>
-
+          <% end %>
+        </div> 
+    <% end %>
 </div>

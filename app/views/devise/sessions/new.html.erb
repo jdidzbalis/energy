@@ -6,9 +6,7 @@
 					<legend>Sign In</legend>
 		  			<%= f.input :email %>
 		  			<%= f.input :password %>
-					<% if devise_mapping.rememberable? -%>
-		    			<div><%= f.input :remember_me, as: :boolean %></div>
-		  			<% end -%>
+		    		<%= f.input :remember_me, as: :boolean %>
 					<%= f.button :submit, "Sign In", class:'btn-large btn-block'%>
 				</fieldset>
 			<% end %>

@@ -8,8 +8,8 @@
           <%= f.input :first_name %>
           <%= f.input :last_name %>
           <%= f.input :profile_name %>
-          <%= f.input :email %>
-          <%= f.input :password %>
+          <%= f.input :email, placeholder: 'user@domain.com' %>
+          <%= f.input :password, hint: 'No special characters' %>
           <%= f.input :password_confirmation%>
          <%= f.button :submit, "Create Account", class:'btn-large btn-block' %>
         </fieldset>

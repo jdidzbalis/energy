@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="page-header">
+	  <h1>Enter Energy Savings For Completed Projects</h1>
+	</div>
+	<div class="row">
+		<div class="span10">
+			 <% @projects.each do |project| %>
+			 	<% if project.inprogress? %>
+				 	<h3><%= project.project_name %></h3>
+				 	<%= link_to "Enter Savings", admin_projects_new_savings_path(id: project.id), class: 'btn btn-primary' %>
+				 <% end %>
+			 <% end %>
+		</div>
+	</div>
+</div>

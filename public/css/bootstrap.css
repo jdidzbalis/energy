@@ -5772,7 +5772,7 @@ a.badge:focus {
 .index-funding .progress {
   height: 8px;
   margin-bottom: 25px;
-  width: 70%;
+  width: 0;
   margin-left: 45px;
   overflow: hidden;
   background-color: #c0c0c0;
@@ -5794,7 +5794,7 @@ a.badge:focus {
 .progress .bar {
   float: left;
   height: 100%;
-  width: 40%;
+  width: 0;
   font-size: 10px;
   color: #c0c0c0;
   text-align: center;

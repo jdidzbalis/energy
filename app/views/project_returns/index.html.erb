@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+		<div class="span10">
+			 <% @project_fundings.each do |funding| %>
+			 	<% investment = funding.investment %>
+			 	<%= investment.project_name %>
+			 	<%= number_with_precision(investment.y1_savings_per, :precision => 3) %>
+			 	<%= link_to "Manage Repayment", new_admin_project_return_path(investment_id: investment.id) %>
+			 <% end %>
+		</div>
+	</div>
+</div>

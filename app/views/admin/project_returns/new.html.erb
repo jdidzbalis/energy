@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+		<div class="span8 offset2">
+			<%= simple_form_for @project, :url => projects_path, html: {class: "form-horizontal form-actions"}, method: :post do |f| %>		
+				<%= form_tag(search_path, :method => "put" %>	
+				<%= f.input :y1_savings, label: "Year 1 Cost Savings" %>
+				<%= submit_tag "Submit", class: 'btn btn-primary' %>
+				<%= link_to "Cancel", projects_path(@project), class: 'btn btn-primary' %>					
+			<% end %>
+		</div>
+	</div>
+</div>

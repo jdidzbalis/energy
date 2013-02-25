@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220141706) do
+ActiveRecord::Schema.define(:version => 20130225152400) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -42,17 +42,50 @@ ActiveRecord::Schema.define(:version => 20130220141706) do
 
   add_index "project_fundings", ["user_id", "investment_id", "state"], :name => "index_project_fundings_on_user_id_and_investment_id_and_state"
 
+  create_table "project_returns", :force => true do |t|
+    t.integer  "y1"
+    t.integer  "y2"
+    t.integer  "return_energysavings"
+    t.integer  "return_energyprice"
+    t.integer  "return_costsavings"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
   create_table "projects", :force => true do |t|
     t.string   "project_name"
     t.integer  "project_cost"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
     t.integer  "percent_funded"
     t.integer  "funded"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "project_owner"
+    t.string   "project_location"
+    t.date     "project_opdate"
+    t.integer  "project_esavings"
+    t.integer  "project_csavings"
+    t.integer  "project_allocation"
+    t.integer  "fundinglevel1"
+    t.integer  "fundinglevel2"
+    t.integer  "fundinglevel3"
+    t.integer  "fundinglevel4"
+    t.integer  "fundinglevel5"
+    t.integer  "y1_savings"
+    t.integer  "y2_savings"
+    t.integer  "y3_savings"
+    t.integer  "y4_savings"
+    t.integer  "y5_savings"
+    t.integer  "y6_savings"
+    t.integer  "y7_savings"
+    t.integer  "y8_savings"
+    t.integer  "y9_savings"
+    t.integer  "y10_savings"
+    t.decimal  "y1_savings_per",      :precision => 4, :scale => 3
+    t.string   "state"
   end
 
   create_table "users", :force => true do |t|

@@ -2,12 +2,7 @@ Energy::Application.routes.draw do
 
   devise_for :admins
 
-  get "home/index"
-
-  get "profiles/show"
-
   devise_for :users
-
 
   devise_scope :user do
     get 'register', to: 'devise/registrations#new', as: :register
@@ -19,17 +14,25 @@ Energy::Application.routes.draw do
 
   resources :project_fundings do
     member do
-      put :accept
+      put :complete
     end
+
+  get "home/index"
+
+  get "profiles/show"
 end
 
+namespace :admin do
+  resources :project_returns
+  get "projects/new_savings"
+  get "projects/index_savings"
+end
 
-resources :projects 
+resources :projects
+
+
+
 root to: 'home#index'
-
-
-
-
 
 get '/:id', to: 'profiles#show', as: 'profile'
 

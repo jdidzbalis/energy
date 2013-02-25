@@ -3,11 +3,22 @@
     <h1>Create A New Project</h1>
   </div>
   
-  <%= simple_form_for @project, :url => projects_path, :html => { :multipart => true} do |f| %>
+  <%= simple_form_for @project, :url => projects_path, :html => { :multipart => true, class: "form-horizontal form-actions"} do |f| %>
 
 
-    <%= f.input :project_name %>
-    <%= f.input :project_cost %>
+    <%= f.input :project_name, label: 'Project Name' %>
+    <%= f.input :project_owner, label: 'Project Owner' %>
+    <%= f.input :project_location, label: 'Project Location' %>
+    <%= f.input :project_opdate, label: 'Operational Date' %>
+    <%= f.input :project_cost, label: 'Capital Cost' %>
+    <%= f.input :project_esavings, label: 'Total Energy Savings' %>
+    <%= f.input :project_csavings, label: 'Total Cost Savings' %>
+    <%= f.input :fundinglevel1, label: 'Funding Level 1' %>
+    <%= f.input :fundinglevel2, label: 'Funding Level 2' %>
+    <%= f.input :fundinglevel3, label: 'Funding Level 3' %>
+    <%= f.input :fundinglevel4, label: 'Funding Level 4' %>
+    <%= f.input :fundinglevel5, label: 'Funding Level 5' %>
+
     <%= f.file_field :avatar %>
     
     <div class="actions">

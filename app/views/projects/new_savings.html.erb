@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+		<div class="span8 offset2">
+			<%= simple_form_for @project do |f| %>		
+				<%= f.input :y1_savings, label: "Year 1 Cost Savings" %>
+				<%= f.input :y2_savings, label: "Year 2 Cost Savings" %>
+				<%= submit_tag "Submit", class: 'btn btn-primary' %>
+				<%= link_to "Cancel", projects_path(@project), class: 'btn btn-primary' %>					
+			<% end %>
+		</div>
+	</div>
+</div>
