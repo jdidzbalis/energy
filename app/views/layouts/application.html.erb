@@ -38,7 +38,7 @@
     					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
    							<% if current_user.try(:admin?) %>
 	  							<li><%= link_to 'Add Project', new_project_path %></li>
-	  							<li><%= link_to 'Enter Savings', admin_projects_index_savings_path %></li>
+	  							<li><%= link_to 'Enter Savings', projects_index_savings_path %></li>
 	  							<li><%= link_to 'Process Returns', admin_project_returns_path %></li>
 	  						<% else %>
 		  						<li><%= link_to 'Track Your Investments', project_fundings_path %></li>

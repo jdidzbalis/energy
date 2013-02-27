@@ -1,10 +1,10 @@
 <header class="jumbotron masthead">
   <div class="container">
-    <div class="row pull-left">
-      <h1 style="color:#FFFFFF;">Energy</h1>
-      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+    <div class="row row-pull-left">
+      <h1 style="color:#FFFFFF;">Energy Efficiency.</h1>
+      <p>Make a loan. Save energy. Earn returns. Start today.</p>
     <p>
-      <a href="assets/bootstrap.zip" class="btn btn-primary btn-large" >Start Investing</a>
+      <%= link_to 'Start Investing', projects_path, class: 'btn btn-primary btn-large' %>
     </p>
     <ul class="masthead-links">
       <li>
@@ -24,66 +24,98 @@
 </div>
 </header>
 
-<div class="main content">
-  <div class="section-hold trans">
-    <div class="container">
-      <div class="row">
-        <h1 style="padding-bottom: 40px;">Introducing Energy Crowdfunding</h1></br>
-        <div class="span4">
-          <i class="icon-key icon-4x marketing-img"></i>
-          <h2>By nerds, for nerds.</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+
+  <div class="main content">
+    <div class="main-levels">
+       <div class="container">
+        <div class="row">
+          <div class="span10">
+            <h3 style="padding-bottom: 40px;">Featured Investment</h3></br>
+          </div>
+          <div class="span4">
+            <%= image_tag @project.first.avatar(:medium) %>
+          </div>
+        <div class="span5">
+          <h3 style="margin-top: -10px;"><%= link_to @project.first.project_name %></h3></br>
+          <h4 style="margin-top: -30px; margin-bottom: -12px;"><%= @project.first.project_owner %></h4></br>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <div class="home-funding">
+              <div class="progress">
+                <div class="bar" style="width: <%= @project.first.percent_funded %>%;"></div>
+              </div>
+              <div class="home-funding-percent">
+                <strong><%= number_to_percentage(@project.first.percent_funded, :precision => 0) || number_to_percentage(0, :precision => 0)%></strong>
+                <p>FUNDED</p>
+              </div>
+              <div class="home-funding-total">
+                <strong><%= number_to_currency(@project.first.funded, :precision => 0) || number_to_currency(0, :precision => 0) %></strong>
+                <p>INVESTED</p>
+              </div>
+              <div class="home-funding-savings">
+                <strong>6.5%</strong>
+                <p>EST. RETURN</p>
+              </div>
+          </div>
         </div>
-        <div class="span4">
-          <i class="icon-key icon-4x marketing-img"></i>
-          <h2>By nerds, for nerds.</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-        </div>
-        <div class="span4">
-          <i class="icon-key icon-4x marketing-img"></i>
-          <h2>By nerds, for nerds.</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        <div class="span3">
+           <p>
+              <%= link_to 'Browse All Investments', projects_path, class: 'btn btn-primary btn-large' %>
+            </p>
         </div>
       </div>
     </div>
   </div>
-  <div class="section-hold trans">
-    <div class="container">
+   <hr class="home">
+ 
+  <div class="main content">
+    <div class="main-levels">
+       <div class="container">
       <div class="row">
-        <h1 style="padding-bottom: 40px;">How It Works</h1></br>
-        <div class="span3">
-          <h2>1. Browse</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+          <h3 style="padding-bottom: 40px;">How It Works</h3></br>
+          <div class="span3">
+            <h3>1. Browse</h3>
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          </div>
+            <div class="span3">
+              <h3>2. Invest</h3>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          </div>
+           <div class="span3">
+              <h3>3. Save</h3>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          </div>
+           <div class="span3">
+              <h3>4. Earn</h3>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          </div>
+  
         </div>
-        <div class="span3">
-          <h2>2. Invest</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-        </div>
-        <div class="span3">
-          <h2>3. Save Energy</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-        </div>
-        <div class="span3">
-          <h2>4. Earn Return</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        <div class="row">
+          <div class="span12">
+            <%= link_to 'Learn More', projects_path, class: 'btn btn-primary btn-large', style: 'margin-top: 40px;' %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-   <div class="section-hold trans">
-    <div class="container">
+   <hr class="home">
+   
+  <div class="main content">
+    <div class="main-levels">
+      <div class="container">
       <div class="row">
-        <h1 style="padding-bottom: 40px;">About Us</h1></br>
-        <div class="span12">
-          <h2>Our Mission</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-        </div>
-        <div class="span12">
-          <h2>Our Team</h2>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        <div class="span11">
+          <h3 style="padding-bottom: 40px;">About Us</h3></br>
+          <h3>Our Team</h3>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <h3>Our Mission</h3>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+          
         </div>
       </div>
     </div>
   </div>
+   <hr class="home">
 </div>
 

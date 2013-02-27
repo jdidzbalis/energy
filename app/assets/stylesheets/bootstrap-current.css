@@ -3969,12 +3969,14 @@ input[type="submit"].btn.btn-mini {
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 1;
+  text-align: left;
 }
 .jumbotron p {
   font-size: 24px;
   font-weight: 300;
   line-height: 1.25;
   margin-bottom: 30px;
+  text-align: left;
 }
 
 /* Link styles (used on .masthead-links as well) */

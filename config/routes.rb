@@ -17,16 +17,19 @@ Energy::Application.routes.draw do
       put :complete
     end
 
-  get "home/index"
+
 
   get "profiles/show"
 end
 
 namespace :admin do
   resources :project_returns
-  get "projects/new_savings"
-  get "projects/index_savings"
+ 
 end
+
+get "projects/new_savings"
+get "projects/index_savings"
+
 
 resources :projects
 

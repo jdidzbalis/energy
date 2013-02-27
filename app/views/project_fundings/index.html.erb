@@ -38,14 +38,14 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="span11">
   <h2>Funding Completed</h2>
     <% @project_fundings.each do |funding| %>
       <% investment = funding.investment %>
-        <div class="span7">
           <% if investment.completed? %>
-              <h2>Completed Investments</h2>
               <table class="table">
-                  <h3 class="info-text"><%= investment.project_name %></h3>
+                  <h3 class="text-info"><%= investment.project_name %></h3>
                   <tr>
                     <td><strong>Your Investment:</strong></td>
                     <td><strong>Current Status:</strong></td>
@@ -56,7 +56,7 @@
                   </tr>
                   <tr>
                     <td><%= funding.funding_offered %></td>
-                    <td>Partially Funded</td>
+                    <td>Completed</td>
                     <td>88%</td>
                     <td>$20</td>
                     <td>March 12, 1934</td>
@@ -64,6 +64,7 @@
                   </tr>
                 </table>
           <% end %>
-        </div> 
     <% end %>
+  </div>
+</div>
 </div>

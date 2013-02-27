@@ -1,16 +1,22 @@
 class ProjectReturnsController < ApplicationController
 	def new
-		@project = Project.find(params[:investment_id])
+		@investment = Project.find(params[:id])
+		@project_funding = ProjectFunding.where(investment_id: @investment.id)
+		@project = @investment
+		@user = @project_funding.first.user
+		@return_annual = @project.new.calculate_return_annual
+		@project_return = ProjectReturn.new(investment: @investment, user: @user)
 		
 	end
 
 	def index 
-		@project_fundings = ProjectFunding.all
+		@projects = Project.where(state: 'completed')
+
 	end
 
 	def create
-		flash[:notice] = "Repayment updated"
-		redirect_to admin_project_returns_path
+
+		@project_return = ProjectReturn.request(@user, @investment, @funding_offered, @return_annual, @return_daily, @return_percent)
 	end
 
 

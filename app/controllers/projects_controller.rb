@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
-before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :new_savings]
+before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :new_savings, :index_savings]
 
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all
+    flash[:notice] = "Browse all our investments here. Click thru to their profile page to view detailed project information, and to make a loan."
 
     respond_to do |format|
       format.html # index.html.erb
@@ -90,7 +91,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :new_sa
   end
 
   def index_savings
-    @projects = Project.all
+    @projects = Project.where(state: 'completed')
   end
 
 end

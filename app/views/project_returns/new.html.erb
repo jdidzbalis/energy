@@ -1,12 +1,20 @@
 <div class="container">
+	<div class="page-header">
+	  <h3>Investors On Completed Project : <%= @investment.project_name %></h3>
+	</div>
 	<div class="row">
-		<div class="span8 offset2">
-			<%= simple_form_for @project do |f| %>		
-				<%= f.input :y1_savings, label: "Year 1 Cost Savings" %>
-				<%= f.input :y2_savings, label: "Year 2 Cost Savings" %>
-				<%= submit_tag "Submit", class: 'btn btn-primary' %>
-				<%= link_to "Cancel", projects_path(@project), class: 'btn btn-primary' %>					
-			<% end %>
+		<div class="span11">
+				<%= @user.full_name %>
+				<%= form_for @project_return, :url => admin_project_returns_path, html: {class: "form-horizontal"}, method: :post do |f| %>
+					
+							<%= f.hidden_field :investment_id, value: @investment.id %>
+							<%= f.hidden_field :funding_level, value: @funding_offered %>
+							<%= f.hidden_field :user_id, value: @user.id %>
+						
+							<%= submit_tag "Process Returns", class: 'btn btn-primary' %>
+							<%= link_to "Cancel", projects_path(@project), class: 'btn btn-primary' %>
+						
+					<% end %>
 		</div>
 	</div>
 </div>

@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   				:project_cost, :project_esavings, :project_csavings, :project_allocation, :percent_funded, :funded,
   				:fundinglevel1, :fundinglevel2, :fundinglevel3, :fundinglevel4, :fundinglevel5, :y1_savings, :y2_savings
 
+has_many :project_returns
 has_many :project_fundings
 has_many :investments, :through => :project_fundings
 has_attached_file :avatar, :styles => { :large => "940x600#", :medium => "300x200>", :small => "200x200>" },
@@ -36,9 +37,7 @@ state_machine :state, initial: :inprogress do
     mutual_investment.update_attribute(:state, 'accepted')
   end
 
-   def total_investment
-    ProjectFunding.where(investment_id: investment_id).sum(:funding_offered)
-  	end
+  
 
 def calculate_savings_per
 	y1_savings.to_f / project_cost
